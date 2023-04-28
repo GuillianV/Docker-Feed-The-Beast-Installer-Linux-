@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+ ftb-server:
+  build:
+   context: .
+   args:
+    - FILES_URL=https://api.modpacks.ch/public/modpack/102/6460/server/linux
+  volumes:
+    - ./server-data/server.properties:/app/server.properties
+    - ./server-data/eula.txt:/app/eula.txt
+    - ./server-data/world/:/app/world
+  ports:
+   - "25564:25565"
+volumes:
+  server-data:
